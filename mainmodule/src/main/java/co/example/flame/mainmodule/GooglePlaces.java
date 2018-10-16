@@ -100,6 +100,8 @@ public class GooglePlaces {
 
     /**
      * Creating http request Factory
+     *
+     * Made with some damn old depreciated code send help
      * */
     public static HttpRequestFactory createRequestFactory(
             final HttpTransport transport) {

@@ -8,7 +8,7 @@
     <Button android:id="@+id/btn_show_map"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Show Places on Map"
+        android:text="@string/show_places_on_map"
         android:layout_alignParentTop="true"
         android:layout_marginTop="10dip"/>
     
