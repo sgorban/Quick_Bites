@@ -78,7 +78,7 @@ public class GooglePlaces {
    //  * @param refrence - reference id of place
      *                 - which you will get in search api request
      * */
-    public PlaceDetails getPlaceDetails(String reference) throws Exception {
+    public PlaceDetails getPlaceDetails(String reference) throws Exception  {
         try {
 
             HttpRequestFactory httpRequestFactory = createRequestFactory(HTTP_TRANSPORT);
