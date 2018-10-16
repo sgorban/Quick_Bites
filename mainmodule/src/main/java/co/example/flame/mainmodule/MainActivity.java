@@ -170,14 +170,14 @@ public class MainActivity extends Activity {
 			googlePlaces = new GooglePlaces();
 			
 			try {
-				// Separeate your place types by PIPE symbol "|"
+				// Seperate your place types by PIPE symbol "|"
 				// If you want all types places make it as null
 				// Check list of types supported by google
 				// 
 				String types = "cafe|restaurant"; // Listing places only cafes, restaurants
 				
 				// Radius in meters - increase this value if you don't find any places
-				double radius = 1000; // 1000 meters 
+				double radius = 8046; // 8046 meters or 5 miles
 				
 				// get nearest places
 				nearPlaces = googlePlaces.search(gps.getLatitude(),
