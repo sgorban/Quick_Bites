@@ -55,7 +55,9 @@ public class GooglePlaces {
             HttpRequest request = httpRequestFactory
                     .buildGetRequest(new GenericUrl(PLACES_SEARCH_URL));
             request.getUrl().put("key", API_KEY);
-            request.getUrl().put("location", _latitude + "," + _longitude);
+            request.getUrl().put("location",  42.6702160+ "," + -83.2157017);
+            // Original request, testing if location is working as intended.  CURRENTLY NOT RETURNING A LOCATION (FIRST PROBLEM AREA)
+            //  request.getUrl().put("location", _latitude + "," + _longitude);
             request.getUrl().put("radius", _radius); // in meters
             request.getUrl().put("sensor", "false");
             if(types != null)
@@ -108,10 +110,10 @@ public class GooglePlaces {
         return transport.createRequestFactory(new HttpRequestInitializer() {
             public void initialize(HttpRequest request) {
                 GoogleHeaders headers = new GoogleHeaders();
-                headers.setApplicationName("AndroidHive-Places-Test");
+                headers.setApplicationName("Quick Bites Testing");
                 request.setHeaders(headers);
-                JsonObjectParser parser = new JsonObjectParser(new JacksonFactory());
-                request.setParser(parser);
+                JsonHttpParser parser = new JsonHttpParser(new JacksonFactory());
+                request.addParser(parser);
             }
         });
     }
