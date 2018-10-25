@@ -55,7 +55,7 @@ public class MainActivity extends Activity {
 	ListView lv;
 
 	// Activity page control
-    int activityloaded =2;
+    //int activityloaded =2;
 	
 	// ListItems data
 	ArrayList<HashMap<String, String>> placesListItems = new ArrayList<HashMap<String,String>>();
@@ -67,7 +67,7 @@ public class MainActivity extends Activity {
 	public static String KEY_VICINITY = "vicinity"; // Place area name
 
 	@Override
-	public void onCreate(Bundle savedInstanceState) {
+	public void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.openingpage);
 
@@ -75,14 +75,13 @@ public class MainActivity extends Activity {
         btnRandomize = findViewById(R.id.btn_randomize);
         btnCustomize = findViewById(R.id.btn_customize);
 
-
-        btnRandomize.setOnClickListener(new OnClickListener() {
-            public void onClick(View v) {
+        btnRandomize.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 setContentView(R.layout.activity_main);
-                activityloaded = 2;
+
             }
         });
-
             cd = new ConnectionDetector(getApplicationContext());
 
             // Check if Internet present
@@ -123,9 +122,8 @@ public class MainActivity extends Activity {
 
             // calling background Async task to load Google Places
             // After getting places from Google all the data is shown in listview
-            if(activityloaded ==2) {
                 new LoadPlaces().execute();
-            }
+
             /** Button click event for shown on map */
 //		btnShowOnMap.setOnClickListener(new View.OnClickListener() {
 //
