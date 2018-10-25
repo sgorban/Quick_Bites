@@ -12,6 +12,7 @@ import android.text.Html;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
@@ -41,14 +42,20 @@ public class MainActivity extends Activity {
 	// GPS Location
 	GPSTracker gps;
 
-	// Button
-	Button btnShowOnMap;
+	// Button Randomize
+	Button btnRandomize;
+
+	// Button Customize
+    Button btnCustomize;
 
 	// Progress dialog
 	ProgressDialog pDialog;
 	
 	// Places Listview
 	ListView lv;
+
+	// Activity page control
+    int activityloaded =2;
 	
 	// ListItems data
 	ArrayList<HashMap<String, String>> placesListItems = new ArrayList<HashMap<String,String>>();
@@ -61,47 +68,65 @@ public class MainActivity extends Activity {
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.openingpage);
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.openingpage);
 
-		cd = new ConnectionDetector(getApplicationContext());
+        //initiating buttons
+        btnRandomize = findViewById(R.id.btn_randomize);
+        btnCustomize = findViewById(R.id.btn_customize);
 
-		// Check if Internet present
-		isInternetPresent = cd.isConnectingToInternet();
-		if (!isInternetPresent) {
-			// Internet Connection is not present
-			alert.showAlertDialog(MainActivity.this, "Internet Connection Error",
-					"Please connect to working Internet connection", false);
-			// stop executing code by return
-			return;
-		}
 
-		// creating GPS Class object
-		gps = new GPSTracker(this);
+        btnRandomize.setOnClickListener(new OnClickListener() {
+            public void onClick(View v) {
+                setContentView(R.layout.activity_main);
+                activityloaded = 2;
+            }
+        });
 
-		// check if GPS location can get
-		if (gps.canGetLocation()) {
-			Log.d("Your Location", "latitude:" + gps.getLatitude() + ", longitude: " + gps.getLongitude());
-		} else {
-			// Can't get user's current location
-			alert.showAlertDialog(MainActivity.this, "GPS Status",
-					"Couldn't get location information. Please enable GPS",
-					false);
-			// stop executing code by return
-			return;
-		}
+            cd = new ConnectionDetector(getApplicationContext());
 
-		// Getting listview
-		lv = findViewById(R.id.list);
-		
-		// button show on map
-		btnShowOnMap = findViewById(R.id.btn_randomize);
+            // Check if Internet present
+            isInternetPresent = cd.isConnectingToInternet();
+            if (!isInternetPresent)
 
-		// calling background Async task to load Google Places
-		// After getting places from Google all the data is shown in listview
-		new LoadPlaces().execute();
+            {
+                // Internet Connection is not present
+                alert.showAlertDialog(MainActivity.this, "Internet Connection Error",
+                        "Please connect to working Internet connection", false);
+                // stop executing code by return
+                return;
+            }
 
-		/** Button click event for shown on map */
+            // creating GPS Class object
+            gps = new GPSTracker(this);
+
+            // check if GPS location can get
+            if (gps.canGetLocation())
+
+            {
+                Log.d("Your Location", "latitude:" + gps.getLatitude() + ", longitude: " + gps.getLongitude());
+            } else
+
+            {
+                // Can't get user's current location
+                alert.showAlertDialog(MainActivity.this, "GPS Status",
+                        "Couldn't get location information. Please enable GPS",
+                        false);
+                // stop executing code by return
+                return;
+            }
+
+            // Getting listview
+            lv = findViewById(R.id.list);
+
+            // button Randomize
+
+            // calling background Async task to load Google Places
+            // After getting places from Google all the data is shown in listview
+            if(activityloaded ==2) {
+                new LoadPlaces().execute();
+            }
+            /** Button click event for shown on map */
 //		btnShowOnMap.setOnClickListener(new View.OnClickListener() {
 //
 //			@Override
@@ -118,12 +143,12 @@ public class MainActivity extends Activity {
 //				startActivity(i);
 //			}
 //		});
-		
-		
-		/**
-		 * ListItem click event
-		 * On selecting a listitem SinglePlaceActivity is launched
-		 * */
+
+
+            /**
+             * ListItem click event
+             * On selecting a listitem SinglePlaceActivity is launched
+             * */
 //		lv.setOnItemClickListener(new OnItemClickListener() {
 //
 //            @Override
@@ -142,7 +167,8 @@ public class MainActivity extends Activity {
 //                startActivity(in);
 //            }
 //        });
-	}
+
+        }
 
 	/**
 	 * Background Async Task to Load Google places
