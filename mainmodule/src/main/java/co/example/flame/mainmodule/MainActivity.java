@@ -92,10 +92,10 @@ public class MainActivity extends Activity {
 		}
 
 		// Getting listview
-		lv = (ListView) findViewById(R.id.list);
+		lv = findViewById(R.id.list);
 		
 		// button show on map
-		btnShowOnMap = (Button) findViewById(R.id.btn_randomize);
+		btnShowOnMap = findViewById(R.id.btn_randomize);
 
 		// calling background Async task to load Google Places
 		// After getting places from Google all the data is shown in listview
@@ -124,24 +124,24 @@ public class MainActivity extends Activity {
 		 * ListItem click event
 		 * On selecting a listitem SinglePlaceActivity is launched
 		 * */
-		lv.setOnItemClickListener(new OnItemClickListener() {
- 
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view,
-                    int position, long id) {
-            	// getting values from selected ListItem
-                String reference = ((TextView) view.findViewById(R.id.reference)).getText().toString();
-                
-                // Starting new intent
-                Intent in = new Intent(getApplicationContext(),
-                        SinglePlaceActivity.class);
-                
-                // Sending place refrence id to single place activity
-                // place refrence id used to get "Place full details"
-                in.putExtra(KEY_REFERENCE, reference);
-                startActivity(in);
-            }
-        });
+//		lv.setOnItemClickListener(new OnItemClickListener() {
+//
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view,
+//                    int position, long id) {
+//            	// getting values from selected ListItem
+//                String reference = ((TextView) view.findViewById(R.id.reference)).getText().toString();
+//
+//                // Starting new intent
+//                Intent in = new Intent(getApplicationContext(),
+//                        SinglePlaceActivity.class);
+//
+//                // Sending place refrence id to single place activity
+//                // place refrence id used to get "Place full details"
+//                in.putExtra(KEY_REFERENCE, reference);
+//                startActivity(in);
+//            }
+//        });
 	}
 
 	/**
@@ -280,11 +280,11 @@ public class MainActivity extends Activity {
 
 	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.activity_main, menu);
-		return true;
-	}
+//	@Override
+//	public boolean onCreateOptionsMenu(Menu menu) {
+//		getMenuInflater().inflate(R.menu.activity_main, menu);
+//		return true;
+//	}
 
 	
 
