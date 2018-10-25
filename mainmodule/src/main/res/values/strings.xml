@@ -7,6 +7,7 @@
     <string name="name" />
     <string name="address">4</string>
     <string name="action_settings" />
-    <string name="show_places_on_map">Randomize</string>
+    <string name="randomize">Randomize</string>
+    <string name="customize">Customize</string>
 
 </resources>
