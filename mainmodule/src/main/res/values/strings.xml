@@ -9,5 +9,10 @@
     <string name="action_settings" />
     <string name="randomize">Randomize</string>
     <string name="customize">Customize</string>
+    <string name="nav_home">home</string>
+    <string name="nav_setting">Settings</string>
+    <string name="nav_customize">Customize</string>
+    <string name="nav_fav">Favorite</string>
+    <string name="nav_homes">Home</string>
 
 </resources>
