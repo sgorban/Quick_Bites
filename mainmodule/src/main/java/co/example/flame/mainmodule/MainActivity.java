@@ -174,7 +174,7 @@ public class MainActivity extends Activity {
 				// If you want all types places make it as null
 				// Check list of types supported by google
 				// 
-				String types = "cafe|restaurant"; // Listing places only cafes, restaurants
+				String types = "cafe|restaurant|bar"; // Listing places only cafes, restaurants, bars
 				
 				// Radius in meters - increase this value if you don't find any places
 				double radius = 8046; // 8046 meters or 5 miles

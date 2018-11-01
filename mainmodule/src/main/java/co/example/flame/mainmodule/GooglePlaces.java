@@ -29,6 +29,7 @@ public class GooglePlaces {
     private static final String PLACES_SEARCH_URL = "https://maps.googleapis.com/maps/api/place/search/json?";
     private static final String PLACES_TEXT_SEARCH_URL = "https://maps.googleapis.com/maps/api/place/search/json?";
     private static final String PLACES_DETAILS_URL = "https://maps.googleapis.com/maps/api/place/details/json?";
+    //private static final String PLACES_TYPES_URL = "https://maps.googleapis.com/maps/api/types/search/json?";
 
     private double _latitude;
     private double _longitude;
@@ -54,19 +55,21 @@ public class GooglePlaces {
             HttpRequestFactory httpRequestFactory = createRequestFactory(HTTP_TRANSPORT);
             HttpRequest request = httpRequestFactory
                     .buildGetRequest(new GenericUrl(PLACES_SEARCH_URL));
+                  //  .buildGetRequest(new GenericUrl(PLACES_TYPES_URL));
             request.getUrl().put("key", API_KEY);
             request.getUrl().put("location",  42.6702160+ "," + -83.2157017);
             // Original request, testing if location is working as intended.  CURRENTLY NOT RETURNING A LOCATION (FIRST PROBLEM AREA)
-            //  request.getUrl().put("location", _latitude + "," + _longitude);
+            //says "try to change tye types of places. look into types
+            //request.getUrl().put("location", _latitude + "," + _longitude);
             request.getUrl().put("radius", _radius); // in meters
             request.getUrl().put("sensor", "false");
             if(types != null)
                 request.getUrl().put("types", types);
 
-            PlacesList list = request.execute().parseAs(PlacesList.class);
-            // Check log cat for places response status
-            Log.d("Places Status", "" + list.status);
-            return list;
+                PlacesList list = request.execute().parseAs(PlacesList.class);
+                // Check log cat for places response status
+                Log.d("Places Status", "" + list.status);
+                return list;
 
         } catch (HttpResponseException e) {
             Log.e("Error:", e.getMessage());
