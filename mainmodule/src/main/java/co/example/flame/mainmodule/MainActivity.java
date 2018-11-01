@@ -62,7 +62,7 @@ public class MainActivity extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+		setContentView(R.layout.openingpage);
 
 		cd = new ConnectionDetector(getApplicationContext());
 
@@ -95,7 +95,7 @@ public class MainActivity extends Activity {
 		lv = (ListView) findViewById(R.id.list);
 		
 		// button show on map
-		btnShowOnMap = (Button) findViewById(R.id.btn_show_map);
+		btnShowOnMap = (Button) findViewById(R.id.btn_randomize);
 
 		// calling background Async task to load Google Places
 		// After getting places from Google all the data is shown in listview
