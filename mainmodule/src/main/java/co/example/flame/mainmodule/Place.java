@@ -29,6 +29,9 @@ public class Place implements Serializable {
     public Geometry geometry;
 
     @Key
+    public String place_id;
+
+    @Key
     public String formatted_address;
 
     @Key

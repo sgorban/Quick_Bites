@@ -108,8 +108,9 @@ public class SinglePlaceActivity extends Activity {
 								String phone = placeDetails.result.formatted_phone_number;
 								String latitude = Double.toString(placeDetails.result.geometry.location.lat);
 								String longitude = Double.toString(placeDetails.result.geometry.location.lng);
+								String placeidtest = placeDetails.result.place_id;
 								
-								Log.d("Place ", name + address + phone + latitude + longitude);
+								Log.d("Place ", name + address + phone + latitude + longitude + placeidtest);
 								
 								// Displaying all the details in the view
 								// single_place.xml
@@ -117,7 +118,8 @@ public class SinglePlaceActivity extends Activity {
 								TextView lbl_address = (TextView) findViewById(R.id.address);
 								TextView lbl_phone = (TextView) findViewById(R.id.phone);
 								TextView lbl_location = (TextView) findViewById(R.id.location);
-								
+								TextView lbl_placeidtest = (TextView) findViewById(R.id.placeidtest);
+
 								// Check for null data from google
 								// Sometimes place details might missing
 								name = name == null ? "Not present" : name; // if name is null display as "Not present"
@@ -125,11 +127,14 @@ public class SinglePlaceActivity extends Activity {
 								phone = phone == null ? "Not present" : phone;
 								latitude = latitude == null ? "Not present" : latitude;
 								longitude = longitude == null ? "Not present" : longitude;
-								
+								placeidtest = placeidtest == null ? "Not present" : placeidtest;
+
+
 								lbl_name.setText(name);
 								lbl_address.setText(address);
 								lbl_phone.setText(Html.fromHtml("<b>Phone:</b> " + phone));
 								lbl_location.setText(Html.fromHtml("<b>Latitude:</b> " + latitude + ", <b>Longitude:</b> " + longitude));
+								lbl_placeidtest.setText(placeidtest);
 							}
 						}
 						else if(status.equals("ZERO_RESULTS")){
