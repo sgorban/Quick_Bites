@@ -147,24 +147,24 @@ public class MainActivity extends Activity {
              * ListItem click event
              * On selecting a listitem SinglePlaceActivity is launched
              * */
-//		lv.setOnItemClickListener(new OnItemClickListener() {
-//
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view,
-//                    int position, long id) {
-//            	// getting values from selected ListItem
-//                String reference = ((TextView) view.findViewById(R.id.reference)).getText().toString();
-//
-//                // Starting new intent
-//                Intent in = new Intent(getApplicationContext(),
-//                        SinglePlaceActivity.class);
-//
-//                // Sending place refrence id to single place activity
-//                // place refrence id used to get "Place full details"
-//                in.putExtra(KEY_REFERENCE, reference);
-//                startActivity(in);
-//            }
-//        });
+		lv.setOnItemClickListener(new OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                    int position, long id) {
+            	// getting values from selected ListItem
+                String reference = ((TextView) view.findViewById(R.id.reference)).getText().toString();
+
+                // Starting new intent
+                Intent in = new Intent(getApplicationContext(),
+                        SinglePlaceActivity.class);
+
+                // Sending place refrence id to single place activity
+                // place refrence id used to get "Place full details"
+                in.putExtra(KEY_REFERENCE, reference);
+                startActivity(in);
+            }
+        });
 
         }
 
