@@ -108,6 +108,7 @@ public class SinglePlaceActivity extends Activity {
 								String phone = placeDetails.result.formatted_phone_number;
 								String latitude = Double.toString(placeDetails.result.geometry.location.lat);
 								String longitude = Double.toString(placeDetails.result.geometry.location.lng);
+								// Testing Place IDs //
 								String placeidtest = placeDetails.result.place_id;
 								
 								Log.d("Place ", name + address + phone + latitude + longitude + placeidtest);
@@ -118,6 +119,7 @@ public class SinglePlaceActivity extends Activity {
 								TextView lbl_address = (TextView) findViewById(R.id.address);
 								TextView lbl_phone = (TextView) findViewById(R.id.phone);
 								TextView lbl_location = (TextView) findViewById(R.id.location);
+								// Testing Place IDs //
 								TextView lbl_placeidtest = (TextView) findViewById(R.id.placeidtest);
 
 								// Check for null data from google
