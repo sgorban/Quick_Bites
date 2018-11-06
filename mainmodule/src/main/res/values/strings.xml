@@ -9,5 +9,6 @@
     <string name="action_settings" />
     <string name="randomize">Randomize</string>
     <string name="customize">Customize</string>
+    <string name="place_holder_for_background_image">Place Holder for background image</string>
 
 </resources>
