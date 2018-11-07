@@ -39,7 +39,7 @@ public class SinglePlaceActivity extends Activity {
 		
 		Intent i = getIntent();
 		
-		// Place referece id
+		// Place reference id
 		String reference = i.getStringExtra(KEY_REFERENCE);
 		
 		// Calling a Async Background thread
@@ -99,7 +99,7 @@ public class SinglePlaceActivity extends Activity {
 					if(placeDetails != null){
 						String status = placeDetails.status;
 						
-						// check place deatils status
+						// check place details status
 						// Check for all possible status
 						if(status.equals("OK")){
 							if (placeDetails.result != null) {
