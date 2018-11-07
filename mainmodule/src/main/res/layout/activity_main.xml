@@ -1,25 +1,41 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical"> 
-    
-    <!-- Show on Map button -->
-    <Button android:id="@+id/btn_randomize"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:ignore="MissingDefaultResource">
+=======
+
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/randomize"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="10dip"/>
-    
-    <!--  List view -->
-    <ListView
-        android:id="@+id/list"
+        android:layout_below="@id/btn_randomize"/>-->
+>>>>>>> df20af955a493674673f7b6d9527e2973dc1f5f8
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/main_nav"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="56dp"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true" />
-    
-    
- 
+
+
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/nav_items">
+
+    </android.support.design.widget.BottomNavigationView>
+
+    <FrameLayout
+        android:id="@+id/main_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/main_nav"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
+
+    </FrameLayout>
+
+
+
 </RelativeLayout>
