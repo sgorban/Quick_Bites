@@ -10,9 +10,9 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Html;
 import android.util.Log;
-import android.view.Menu;
 import android.view.View;
-import android.view.View.OnClickListener;
+
+import java.util.Random;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
@@ -39,6 +39,9 @@ public class MainActivity extends Activity {
 	// Places List
 	PlacesList nearPlaces;
 
+	//Selected from random list
+    public static HashMap<String, String> Selectedplace;
+
 	// GPS Location
 	GPSTracker gps;
 
@@ -54,8 +57,6 @@ public class MainActivity extends Activity {
 	// Places Listview
 	ListView lv;
 
-	// Activity page control
-    //int activityloaded =2;
 	
 	// ListItems data
 	ArrayList<HashMap<String, String>> placesListItems = new ArrayList<HashMap<String,String>>();
@@ -75,13 +76,6 @@ public class MainActivity extends Activity {
         btnRandomize = findViewById(R.id.btn_randomize);
         btnCustomize = findViewById(R.id.btn_customize);
 
-        btnRandomize.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                setContentView(R.layout.activity_main);
-
-            }
-        });
             cd = new ConnectionDetector(getApplicationContext());
 
             // Check if Internet present
@@ -124,28 +118,11 @@ public class MainActivity extends Activity {
             // After getting places from Google all the data is shown in listview
                 new LoadPlaces().execute();
 
-            /** Button click event for shown on map */
-//		btnShowOnMap.setOnClickListener(new View.OnClickListener() {
-//
-//			@Override
-//			public void onClick(View arg0) {
-//				Intent i = new Intent(getApplicationContext(),
-//						PlacesMapActivity.class);
-//				// Sending user current geo location
-//				i.putExtra("user_latitude", Double.toString(gps.getLatitude()));
-//				i.putExtra("user_longitude", Double.toString(gps.getLongitude()));
-//
-//				// passing near places to map activity
-//				i.putExtra("near_places", nearPlaces);
-//				// staring activity
-//				startActivity(i);
-//			}
-//		});
-
 
             /**
              * ListItem click event
              * On selecting a listitem SinglePlaceActivity is launched
+             * Working
              * */
 		lv.setOnItemClickListener(new OnItemClickListener() {
 
@@ -159,14 +136,30 @@ public class MainActivity extends Activity {
                 Intent in = new Intent(getApplicationContext(),
                         SinglePlaceActivity.class);
 
-                // Sending place refrence id to single place activity
-                // place refrence id used to get "Place full details"
+                // Sending place reference id to single place activity
+                // place reference id used to get "Place full details"
                 in.putExtra(KEY_REFERENCE, reference);
                 startActivity(in);
             }
         });
 
-        }
+//		btnRandomize.setOnClickListener(new View.OnClickListener() {
+//
+//		    @Override
+//            public void onClick(View v) {
+//		        // getting values from selected ListItem
+//                String reference = ((TextView) view.findViewById(R.id.reference)).getText().toString();
+//
+//                // Starting new intent
+//                Intent in = new Intent(getApplicationContext(), Randomizer.class);
+//
+//                // Sending place reference id to single place activity
+//                // place reference id used to get "Place full details"
+//                in.putExtra(KEY_REFERENCE, reference);
+//                startActivity(in);
+//                }
+//            });
+  }
 
 	/**
 	 * Background Async Task to Load Google places
@@ -256,9 +249,19 @@ public class MainActivity extends Activity {
 					                R.layout.list_item,
 					                new String[] { KEY_REFERENCE, KEY_NAME}, new int[] {
 					                        R.id.reference, R.id.name });
-							
-							// Adding data into listview
-							lv.setAdapter(adapter);
+
+                            // Adding data into listview
+                            lv.setAdapter(adapter);
+
+							// Attempt to select random entry from list
+
+                            Selectedplace = placesListItems.get(new Random().nextInt(placesListItems.size()));
+
+
+
+
+
+
 						}
 					}
 					else if(status.equals("ZERO_RESULTS")){

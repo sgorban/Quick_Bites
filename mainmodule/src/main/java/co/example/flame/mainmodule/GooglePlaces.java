@@ -84,8 +84,7 @@ public class GooglePlaces {
         try {
 
             HttpRequestFactory httpRequestFactory = createRequestFactory(HTTP_TRANSPORT);
-            HttpRequest request = httpRequestFactory
-                    .buildGetRequest(new GenericUrl(PLACES_DETAILS_URL));
+            HttpRequest request = httpRequestFactory.buildGetRequest(new GenericUrl(PLACES_DETAILS_URL));
             request.getUrl().put("key", API_KEY);
             request.getUrl().put("reference", reference);
             request.getUrl().put("sensor", "false");
