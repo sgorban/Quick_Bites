@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -6,6 +7,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:ignore="MissingDefaultResource">
+=======
+
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_randomize"/>-->
+>>>>>>> df20af955a493674673f7b6d9527e2973dc1f5f8
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/main_nav"
@@ -28,6 +35,7 @@
         android:layout_alignParentTop="true">
 
     </FrameLayout>
+
 
 
 </RelativeLayout>

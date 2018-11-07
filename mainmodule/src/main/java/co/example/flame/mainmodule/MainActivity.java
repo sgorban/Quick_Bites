@@ -3,6 +3,7 @@ package co.example.flame.mainmodule;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
+
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentTransaction;
@@ -14,6 +15,7 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+
 
 
 public class MainActivity extends AppCompatActivity {
@@ -68,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
      *
      */
 
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -105,13 +108,17 @@ public class MainActivity extends AppCompatActivity {
                         return false;
 
                 }
+
             }
         });
-	}
+
+        }
 
     private void setFragment(android.support.v4.app.Fragment fragment) {
 
+
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+
 
         fragmentTransaction.replace(R.id.main_frame, fragment);
         fragmentTransaction.commit();
