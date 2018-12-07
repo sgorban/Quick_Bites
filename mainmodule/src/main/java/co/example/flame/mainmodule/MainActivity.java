@@ -56,7 +56,7 @@ public class MainActivity extends Activity {
 
 	// Activity page control
     //int activityloaded =2;
-	
+
 	// ListItems data
 	ArrayList<HashMap<String, String>> placesListItems = new ArrayList<HashMap<String,String>>();
 	
@@ -64,7 +64,6 @@ public class MainActivity extends Activity {
 	// KEY Strings
 	public static String KEY_REFERENCE = "reference"; // id of the place
 	public static String KEY_NAME = "name"; // name of the place
-	public static String KEY_VICINITY = "vicinity"; // Place area name
 
 	@Override
 	public void onCreate(final Bundle savedInstanceState) {
@@ -73,7 +72,7 @@ public class MainActivity extends Activity {
 
         //initiating buttons
         btnRandomize = findViewById(R.id.btn_randomize);
-        btnCustomize = findViewById(R.id.btn_customize);
+
 
         btnRandomize.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -124,23 +123,7 @@ public class MainActivity extends Activity {
             // After getting places from Google all the data is shown in listview
                 new LoadPlaces().execute();
 
-            /** Button click event for shown on map */
-//		btnShowOnMap.setOnClickListener(new View.OnClickListener() {
-//
-//			@Override
-//			public void onClick(View arg0) {
-//				Intent i = new Intent(getApplicationContext(),
-//						PlacesMapActivity.class);
-//				// Sending user current geo location
-//				i.putExtra("user_latitude", Double.toString(gps.getLatitude()));
-//				i.putExtra("user_longitude", Double.toString(gps.getLongitude()));
-//
-//				// passing near places to map activity
-//				i.putExtra("near_places", nearPlaces);
-//				// staring activity
-//				startActivity(i);
-//			}
-//		});
+
 
 
             /**
@@ -303,13 +286,4 @@ public class MainActivity extends Activity {
 		}
 
 	}
-
-//	@Override
-//	public boolean onCreateOptionsMenu(Menu menu) {
-//		getMenuInflater().inflate(R.menu.activity_main, menu);
-//		return true;
-//	}
-
-	
-
 }

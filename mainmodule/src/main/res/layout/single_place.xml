@@ -19,15 +19,7 @@
         android:id="@+id/name"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"/>
-    
-    <!-- Address Label -->
-    <TextView
-        android:text="@string/address"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dip"
-        android:layout_marginBottom="5dip"
-        android:textStyle="bold"/>
+
     
     <!--  Address Value -->
     <TextView
@@ -51,13 +43,11 @@
         android:layout_marginTop="15dip"
         android:layout_marginBottom="5dip"/>
 
-    <!-- PlaceID Test -->
-    <TextView
-        android:id="@+id/placeidtest"
-        android:layout_width="fill_parent"
+    <Button
+        android:id="@+id/btn_directions"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dip"
-        android:layout_marginBottom="5dip" />
+        android:text="Directions" />
 
 
 </LinearLayout>

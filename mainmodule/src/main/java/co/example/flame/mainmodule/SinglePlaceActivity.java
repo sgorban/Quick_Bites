@@ -3,19 +3,17 @@ package co.example.flame.mainmodule;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Html;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
+import android.widget.Button;
 
 public class SinglePlaceActivity extends Activity {
-	// flag for Internet connection status
-	Boolean isInternetPresent = false;
 
-	// Connection detector class
-	ConnectionDetector cd;
-	
 	// Alert Dialog Manager
 	AlertDialogManager alert = new AlertDialogManager();
 
@@ -27,6 +25,9 @@ public class SinglePlaceActivity extends Activity {
 	
 	// Progress dialog
 	ProgressDialog pDialog;
+
+	// Button Directions
+	Button btnDirections;
 	
 	// KEY Strings
 	public static String KEY_REFERENCE = "reference"; // id of the place
@@ -44,6 +45,25 @@ public class SinglePlaceActivity extends Activity {
 		
 		// Calling a Async Background thread
 		new LoadSinglePlaceDetails().execute(reference);
+
+		btnDirections = findViewById(R.id.btn_directions);
+
+		btnDirections.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				String latitude = Double.toString(placeDetails.result.geometry.location.lat);
+				String longitude = Double.toString(placeDetails.result.geometry.location.lng);
+
+				Uri gmmIntentUri = Uri.parse("http://maps.google.com/maps?saddr=42.670,-83.21&daddr="+latitude+","+longitude);
+
+				Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+
+				mapIntent.setPackage("com.google.android.apps.maps");
+
+				startActivity(mapIntent);
+
+			}
+		});
 	}
 	
 	
