@@ -140,7 +140,7 @@ public class SinglePlaceActivity extends Activity {
 								TextView lbl_phone = (TextView) findViewById(R.id.phone);
 								TextView lbl_location = (TextView) findViewById(R.id.location);
 								// Testing Place IDs //
-								TextView lbl_placeidtest = (TextView) findViewById(R.id.placeidtest);
+								//TextView lbl_placeidtest = (TextView) findViewById(R.id.placeidtest);
 
 								// Check for null data from google
 								// Sometimes place details might missing
@@ -156,7 +156,7 @@ public class SinglePlaceActivity extends Activity {
 								lbl_address.setText(address);
 								lbl_phone.setText(Html.fromHtml("<b>Phone:</b> " + phone));
 								lbl_location.setText(Html.fromHtml("<b>Latitude:</b> " + latitude + ", <b>Longitude:</b> " + longitude));
-								lbl_placeidtest.setText(placeidtest);
+								//lbl_placeidtest.setText(placeidtest);
 							}
 						}
 						else if(status.equals("ZERO_RESULTS")){
