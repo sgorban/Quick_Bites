@@ -33,7 +33,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".SinglePlaceActivity" />
-        <activity android:name=".Randomizer" />
 
 
     </application>
